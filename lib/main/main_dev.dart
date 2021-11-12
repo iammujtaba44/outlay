@@ -2,6 +2,6 @@ import 'package:outlay/main/enviroments.dart';
 
 import 'package:outlay/main/main_com.dart';
 
-Future<void> mainDev() async {
+Future<void> main() async {
   await mainCommon(Enviroments.dev);
 }
