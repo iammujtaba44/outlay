@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
+import 'package:outlay/core/providers/providers.dart';
 import 'package:outlay/main/enviroments.dart';
 import 'package:outlay/pages/check.dart';
 import 'package:outlay/pages/dashboard/dashboard.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 Future<void> mainCommon(String env) async {
@@ -27,13 +29,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Outlay',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+      return MultiProvider(
+        providers: providers,
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Outlay',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: Dashboard(),
         ),
-        home: Dashboard(),
       );
     });
   }
