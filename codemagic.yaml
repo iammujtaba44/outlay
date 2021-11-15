@@ -26,10 +26,9 @@ workflows:
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
       - flutter packages pub get
-      - flutter build apk --debug -t lib/main/main_prod.dart
       - name: Build APK with Flutter
         script: |
-          cd . && flutter build apk --release --build-name=1.0.1 --build-number=50
+          cd . && flutter build apk --debug -t lib/main/main_prod.dart --build-name=1.0.1 --build-number=50
    
     artifacts:
       - build/**/outputs/apk/**/*.apk
