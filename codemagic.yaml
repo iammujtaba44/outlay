@@ -28,7 +28,7 @@ workflows:
       - flutter packages pub get
       - name: Build APK with Flutter
         script: |
-          cd . && flutter build apk --debug -t lib/main/main_prod.dart --build-name=1.0.1 --build-number=50
+          cd . && flutter build apk --debug -t lib/main/main_prod.dart --build-name=1.1.1 --build-number=$FCI_BUILD_NUMBER
    
     artifacts:
       - build/**/outputs/apk/**/*.apk
