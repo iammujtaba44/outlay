@@ -6,17 +6,6 @@ if (localPropertiesFile.exists()) {
     }
 }
 
-def myProperties = new Properties()
-def myPropertiesFile = rootProject.file('key.properties')
-if (myPropertiesFile.exists()) {
-    myPropertiesFile.withReader('UTF-8') { reader ->
-        myProperties.load(reader)
-    }
-}
-def myss = myProperties.getProperty('mySdk')
-if (myss == null) {
-    throw new GradleException("my SDK not found. Define location with mySdk in the key.properties file.")
-}
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
@@ -65,7 +54,7 @@ android {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }
